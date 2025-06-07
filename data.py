@@ -13,9 +13,28 @@ class data:
     Debug: bool = True
 
     Devices: list = field(default_factory=lambda: [
-        Device(name="QuittoPC", MAC_end="22:48:5c:06:0d:b1"),
-        Device(name="local_machine", MAC_end=tool.get_mac()),
+        Device(id = 1 , name="QuittoPC", MAC_end="22:48:5c:06:0d:b1"),
+        Device(id = 0, name="local_machine", MAC_end=tool.get_mac()),
     ])
+
+    def getDevice(id: int):
+        devices = sorted(data.Device, key=lambda d: d.id)
+        low = 0
+        high = len(devices) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+            device = devices[mid]
+
+            if device.id == id:
+                return device
+            elif device.id < id:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        return None
+
     
     def __str__(self) -> str:
         if not self.commands:

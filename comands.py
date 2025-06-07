@@ -12,7 +12,7 @@ class Commands:
             DeviceCommand(
                 name="QuittoPC_start",
                 root_command=False,
-                Device=data.Devices,
+                Device=data.getDevice(),
                 voice_mesage=[
                     "Ligar PC", "Ligar QuittoPC", "Iniciar computador",
                     "Ligar meu computador", "Acordar PC", "Acordar QuittoPC",
