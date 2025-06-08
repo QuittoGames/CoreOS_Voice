@@ -12,7 +12,7 @@ class Commands:
             DeviceCommand(
                 name="QuittoPC_start",
                 root_command=False,
-                Device=data.getDevice(),
+                Device=data.getDevice(1),
                 voice_mesage=[
                     "Ligar PC", "Ligar QuittoPC", "Iniciar computador",
                     "Ligar meu computador", "Acordar PC", "Acordar QuittoPC",
@@ -25,5 +25,11 @@ class Commands:
             DeviceCommand(
                 name="QuittoPC_shutdown",
                 root_command=True,
+                Device=data.getDevice(1),
+                voice_mesage=[
+                    "Deligar PC", "Deligar QuittoPC", "Deligar",
+                    "Deligar meu computador", "Deligar PC", "Deligar QuittoPC",
+                    "Deligar computador", "Deligar máquina", "Wake up PC",
+                ]
             )
         ]
